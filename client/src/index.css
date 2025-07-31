@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+/* Enhanced Heatmap Colors */
+.color-empty {
+  fill: #ebedf0;
+}
+
+.color-scale-1 {
+  fill: #9be9a8;
+}
+
+.color-scale-2 {
+  fill: #40c463;
+}
+
+.color-scale-3 {
+  fill: #30a14e;
+}
+
+.color-scale-4 {
+  fill: #216e39;
+}
+
+/* Heatmap Container Styling */
+.heatmap-container {
+  font-size: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.heatmap-container .react-calendar-heatmap {
+  line-height: 1;
+}
+
+.heatmap-container .react-calendar-heatmap .react-calendar-heatmap-month-label {
+  font-size: 10px;
+  fill: #767676;
+  font-weight: 500;
+}
+
+.heatmap-container .react-calendar-heatmap .react-calendar-heatmap-weekday-label {
+  font-size: 9px;
+  fill: #767676;
+  font-weight: 400;
+}
+
+/* Enhanced Heatmap Square Hover Effects */
+.heatmap-container rect {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.heatmap-container rect:hover {
+  stroke: #1a73e8;
+  stroke-width: 2px;
+  transform: scale(1.2);
+  transform-origin: center;
+  filter: brightness(1.1);
+  transition: all 0.15s ease-in-out;
+}
+
+.heatmap-container rect:active {
+  transform: scale(1.1);
+  transition: all 0.1s ease-in-out;
+}
+
+/* Pulsing animation for today's square */
+.heatmap-container rect[data-date]:not(.color-empty) {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.2);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+/* Special styling for today's date */
+.heatmap-container rect[data-date*="2025-07-31"] {
+  outline: 2px solid #1a73e8;
+  outline-offset: 1px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Animation for loading */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Smooth scrollbar for day details */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 2px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Prose styling for content */
+.prose {
+  color: #374151;
+  max-width: none;
+}
+
+.prose p {
+  margin-bottom: 1em;
+  line-height: 1.6;
+}
+
+/* Button hover effects */
+.btn-hover:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card hover effects */
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
