@@ -6,7 +6,9 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());  
 app.use(cors(
-    { origin: 'https://todo-list-orpin-xi.vercel.app/', },
+    { origin: '*', },
+    { credentials: true },
+    { methods: 'GET,HEAD,PUT,PATCH,POST,DELETE' }
 ));
  
 const todoRoutes = require('./routes/todoRoutes');  
