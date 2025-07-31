@@ -12,7 +12,7 @@ function App() {
   const fetchTodos = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:5000/api/todos');
+      const res = await axios.get('https://todo-list-7un8.onrender.com/api/todos');
       setTodos(res.data);
     } catch (error) {
       console.error('Error fetching todos:', error);
@@ -32,10 +32,10 @@ function App() {
     setLoading(true);
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/todos/${editId}`, { content });
+        await axios.put(`https://todo-list-7un8.onrender.com/api/todos/${editId}`, { content });
         setEditId(null);
       } else {
-        await axios.post('http://localhost:5000/api/todos', { content });
+        await axios.post('https://todo-list-7un8.onrender.com/api/todos', { content });
       }
       setContent('');
       fetchTodos();
@@ -58,7 +58,7 @@ function App() {
     
     setLoading(true);
     try {
-      await axios.delete(`http://localhost:5000/api/todos/${id}`);
+      await axios.delete(`https://todo-list-7un8.onrender.com/api/todos/${id}`);
       fetchTodos();
     } catch (error) {
       console.error('Error deleting content:', error);
